@@ -18,7 +18,7 @@ jobs:
         include-prerelease: false
       
     - name: Publish .Net Core Project
-      run: dotnet publish Tg.Eng/TgEng.csproj -c Release --output release --nologo
+      run: dotnet publish TgEng/TgEng.csproj -c Release --output release --nologo
       
     - name: Uploading files to gh-pages branch
       uses: JamesIves/github-pages-deploy-action@4.1.4
