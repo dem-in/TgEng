@@ -12,7 +12,7 @@ namespace TgEng.Pages {
         public string BotApiVersion { get; set; }
 
         protected override async Task OnInitializedAsync() {
-            _jsModule = await JSRuntime.InvokeAsync<IJSObjectReference>("import", "./scripts/script.js");
+            _jsModule = await JSRuntime.InvokeAsync<IJSObjectReference>("import", "./scripts.js");
 
             BotApiVersion = await _jsModule.InvokeAsync<string>("GetTelegramBotApiVersion");
         }
