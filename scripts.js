@@ -5,3 +5,7 @@ export function GetTelegramBotApiVersion() {
 export function Expand() {
     window.Telegram.WebApp.expand();
 }
+
+export function Close() {
+    window.Telegram.close();
+}
