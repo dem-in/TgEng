@@ -7,5 +7,5 @@ export function Expand() {
 }
 
 export function Close() {
-    window.Telegram.close();
+    window.Telegram.WebApp.close();
 }
