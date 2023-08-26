@@ -34,7 +34,7 @@
       "System.Runtime.InteropServices.JavaScript.dll": "sha256-BelDVpqfDVmVY5eiUi5RxHoUd3QeudwAx2H8qM08YII=",
       "System.Text.Encodings.Web.dll": "sha256-pvIrtoRH3pg+S3DVfTeqGmYAhKqJ0nC8PEdZkYd+TCY=",
       "System.Text.Json.dll": "sha256-pC4mG5wtBX2x5pqYV9gnly4uV3uAuNoKXeGuJ3cLcg8=",
-      "TgEng.dll": "sha256-QBT2rdLt0UuSY0BPZfjhjufZ2QP4EjG4rsOEYIz8d2A="
+      "TgEng.dll": "sha256-TdTr9aX3BgMOr+FOvrSC5+fYPbMhwUW+fDXM31ovckU="
     },
     "extensions": null,
     "lazyAssembly": null,
