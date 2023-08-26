@@ -1,3 +1,7 @@
+export function GetWebAppVersion() {
+    return window.Telegram.WebApp.version;
+}
+
 export function GetTelegramBotApiVersion() {
     return window.Telegram.WebApp.version;
 }
