@@ -19,8 +19,13 @@
         ValueTask<string> GetPlatformAsync();
 
         /// <summary>
-        /// Call method that expand WebApp
+        /// Call Expand WebApp method
         /// </summary>
-        ValueTask ExpandAsync();
+        ValueTask InvokeExpandAsync();
+
+        /// <summary>
+        /// Call Close WebApp method
+        /// </summary>
+        ValueTask InvokeCloseAsync();
     }
 }

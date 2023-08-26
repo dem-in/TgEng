@@ -1,17 +1,15 @@
 ﻿using Microsoft.AspNetCore.Components;
-using Microsoft.JSInterop;
+using TgEng.Services;
 
 namespace TgEng {
     public partial class App {
         [Inject]
-        public IJSRuntime JSRuntime { get; set; }
-
-        private IJSObjectReference _jsModule;
+        public ITelegramWebAppProvider TelegramWebAppProvider { get; set; }
 
         protected override async Task OnInitializedAsync() {
-            _jsModule = await JSRuntime.InvokeAsync<IJSObjectReference>("import", "./scripts.js");
+            await TelegramWebAppProvider.InitializeAsync();
 
-            await _jsModule.InvokeVoidAsync("Expand");
+            await TelegramWebAppProvider.InvokeExpandAsync();
         }
     }
 }

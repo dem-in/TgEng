@@ -19,22 +19,39 @@ namespace TgEng.Services {
             _jSModule = new(await _jSRuntime.InvokeAsync<IJSObjectReference>("import", "./scripts.js"));
         }
 
-        public ValueTask ExpandAsync() {
-            throw new NotImplementedException();
+        public async ValueTask InvokeExpandAsync() {
+            if (!_jSModule.IsValueCreated)
+                throw new NullReferenceException($"{nameof(_jSModule)} is not created");
+
+            await _jSModule.Value.InvokeVoidAsync("WebAppExpand");
         }
 
-        public ValueTask<bool> GetIsExpandedAsync() {
-            throw new NotImplementedException();
+        public async ValueTask InvokeCloseAsync() {
+            if (!_jSModule.IsValueCreated)
+                throw new NullReferenceException($"{nameof(_jSModule)} is not created");
+
+            await _jSModule.Value.InvokeVoidAsync("WebAppClose");
         }
 
-        public ValueTask<string> GetPlatformAsync() {
-            throw new NotImplementedException();
+        public async ValueTask<bool> GetIsExpandedAsync() {
+            if (!_jSModule.IsValueCreated)
+                throw new NullReferenceException($"{nameof(_jSModule)} is not created");
+
+            return await _jSModule.Value.InvokeAsync<bool>("WebAppIsExpanded");
+        }
+
+        public async ValueTask<string> GetPlatformAsync() {
+            if (!_jSModule.IsValueCreated)
+                throw new NullReferenceException($"{nameof(_jSModule)} is not created");
+
+            return await _jSModule.Value.InvokeAsync<string>("WebAppPlatform");
         }
 
         public async ValueTask<string> GetVersionAsync() {
             if (!_jSModule.IsValueCreated)
                 throw new NullReferenceException($"{nameof(_jSModule)} is not created");
-            return await _jSModule.Value.InvokeAsync<string>("GetWebAppVersion");
+
+            return await _jSModule.Value.InvokeAsync<string>("WebAppVersion");
         }
     }
 }

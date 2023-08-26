@@ -1,11 +1,10 @@
 ﻿using Microsoft.AspNetCore.Components;
-using Microsoft.JSInterop;
+using TgEng.Services;
 
 namespace TgEng.Shared {
     public partial class NavMenu {
         [Inject]
-        public IJSRuntime JSRuntime { get; set; }
-        private IJSObjectReference _jsModule;
+        public ITelegramWebAppProvider TelegramWebAppProvider { get; set; }
 
         private bool collapseNavMenu = true;
 
@@ -16,11 +15,11 @@ namespace TgEng.Shared {
         }
 
         private async Task CloseAsync() {
-            await _jsModule.InvokeVoidAsync("Close");
+            await TelegramWebAppProvider.InvokeCloseAsync();
         }
 
         protected override async Task OnInitializedAsync() {
-            _jsModule = await JSRuntime.InvokeAsync<IJSObjectReference>("import", "./scripts.js");
+            await TelegramWebAppProvider.InitializeAsync();
         }
     }
 }
