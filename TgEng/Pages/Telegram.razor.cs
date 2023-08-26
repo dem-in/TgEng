@@ -23,6 +23,8 @@ namespace TgEng.Pages {
 
         protected override async Task OnInitializedAsync() {
             await TelegramWebAppProvider.InitializeAsync();
+
+            BotApiVersion = await TelegramWebAppProvider.GetVersionAsync();
         }
     }
 }
